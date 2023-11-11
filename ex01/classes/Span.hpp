@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:50:10 by rabril-h          #+#    #+#             */
-/*   Updated: 2023/11/08 21:07:10 by rabril-h         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:58:20 by rabril-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <limits>
 # include <iterator>
 # include <numeric>
+# include <exception>
+# include <stdexcept>
+
+#define MIN_RANDOM -420000
+#define MAX_RANDOM 420000
 
 class Span {
 
@@ -32,7 +37,6 @@ class Span {
     Span& operator=(const Span& inst);
 
     // ? getters
-    int           getNumber(unsigned int idx) const;
     unsigned int  getSize(void) const;
     unsigned int  getMaxSize(void) const;
 
@@ -42,8 +46,7 @@ class Span {
     long          longestSpan(void) const;
     
     // ? utils
-    void          fill(unsigned int n);
-    void          fill(int start, int end);
+    void          fillSpanWithNValues(unsigned int n);
 
     template <typename T>
     void          addNumber(const typename T::iterator& begin, const typename T::iterator& end);
